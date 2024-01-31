@@ -42,6 +42,7 @@ h2{
   margin-left: auto;
 }
 .switchBtn{
+  margin: 15px 40%;
   position: relative;
   display: inline-block;
   width: 110px;
@@ -90,4 +91,9 @@ input:checked + .slide:before {
 }
 .slide.round:before {
   border-radius: 50%;
+}
+
+.volume-range{
+  width: 100%;
+  
 }

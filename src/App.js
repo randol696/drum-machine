@@ -1,13 +1,14 @@
 
 import React from 'react';
 import './App.css';
-import { useState, useEffect} from 'react';
+import { useState, useEffect, useRef} from 'react';
 
 function App() {
   
   const [audioSrc, setAudioSrc] = useState('https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3');
   const [displayText, setDisplayText] =useState('');
-  const audioRef = React.useRef('');
+  const audioRef = useRef('');
+  const volumeRef = useRef(); 
 
   useEffect(() => { 
 
@@ -42,6 +43,11 @@ function App() {
    
   }
 
+  const handleVolumeChange = (e) => {
+    const newVolume = e.target.value / 100;
+    volumeRef.current = newVolume;
+    audioRef.current.volume = newVolume;
+  };
 
   
   return (
@@ -65,6 +71,13 @@ function App() {
           </label>
        
           <h2>Display{displayText}</h2>
+          <input
+            className="volume-range"
+            type="range"
+            min="0"
+            max="100"
+            onChange={handleVolumeChange}
+          />
         </div>
  
       
