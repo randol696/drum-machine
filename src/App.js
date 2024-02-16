@@ -38,16 +38,20 @@ function App() {
   
   console.log(audioId);
   return (
+    <>
     <div>
       <div id="drum-machine">
         <div className="buttons_container">
           {audioList.map((audio, index) => (
             <div key={index}>
-              <button className="drum-pad" id={audio.id} type="button" onClick={() => handleKeyPress(audio.key)}>{audio.id}
-              </button>
-               <audio className="clip" id={audio.id} src={currentAudio}  />
+              <div className="drum-pad" id={audio.id} onClick={() => handleKeyPress(audio.key)}>{audio.id}
+              <audio className="clip" id={audio.id} src={audio.src}  />
+              </div>
+               
             </div>
-          ))}
+           
+          )
+          )}
         </div>
         <div id="display">
           <label className='switchBtn'>
@@ -66,7 +70,7 @@ function App() {
        
       </div>
     </div>
-  );
+    </>);
 }
 
 export default App;

@@ -21,12 +21,13 @@ body{
   flex-wrap: wrap;
   gap: 10px;
 }
-button{
+.drum-pad{
   width: 100px;
   height:70px;
   border: none;
   border-radius: 5%;
-  
+  background-color: #7ebdea;
+  align-items: center;
 }
 
 #display{
